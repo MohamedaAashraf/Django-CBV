@@ -4,6 +4,7 @@ from django.urls import reverse
 
 # Create your models here.
 
+# model fields which requred when post 
 class Post(models.Model):
     title = models.CharField(max_length=50)
     content = models.TextField(max_length=1000)
@@ -14,8 +15,9 @@ class Post(models.Model):
         verbose_name = ("Post")
         verbose_name_plural = ("Posts")
 
+# return with post title as inserted "title"
     def __str__(self):
-        return self.name
+        return self.title
 
     def get_absolute_url(self):
         return reverse("Post_detail", kwargs={"pk": self.pk})
